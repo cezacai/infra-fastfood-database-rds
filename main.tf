@@ -4,14 +4,9 @@ resource "aws_db_subnet_group" "fastfood_subnet_group" {
   subnet_ids = ["subnet-01111f51e20b5d265", "subnet-0c1334ab387f9e579"]
 
   lifecycle {
-    ignore_changes = [name]data "aws_db_subnet_group" "existing" {
-  name = "aws_rds_subnets_groups"
-}
-
-resource "aws_db_subnet_group" "fastfood_subnet_group" {
-  count = length(data.aws_db_subnet_group.existing) == 0 ? 1 : 0
-  name       = "aws_rds_subnets_groups"
-  subnet_ids = ["subnet-01111f51e20b5d265", "subnet-0c1334ab387f9e579"]
+    ignore_changes = [name]resource "aws_db_subnet_group" "fastfood_subnet_group" {
+    name       = "aws_rds_subnets_groups"
+    subnet_ids = ["subnet-01111f51e20b5d265", "subnet-0c1334ab387f9e579"]
 
   lifecycle {
     ignore_changes = [name]
@@ -27,7 +22,7 @@ resource "aws_db_instance" "default" {
   username             = var.db_username
   password             = var.db_password
   skip_final_snapshot  = true
-  db_subnet_group_name = coalesce(aws_db_subnet_group.fastfood_subnet_group[0].name, data.aws_db_subnet_group.existing.name)
+  db_subnet_group_name = aws_db_subnet_group.fastfood_subnet_group.name
   vpc_security_group_ids = [aws_security_group.this.id]
 
   lifecycle {
