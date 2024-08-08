@@ -1,0 +1,40 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+# Arquivos de estado do Terraform
+*.tfstate
+*.tfstate.*
+
+# Diretório .terraform gerado ao executar `terraform init`
+.terraform/
+
+# Arquivos de backup criados pelo Terraform durante a execução
+terraform.tfstate.backup
+
+# Arquivo de variáveis tfvars (se você os estiver usando)
+*.tfvars
+
+# Arquivos de configuração de backend do Terraform
+backend.tf
+backend.tfvars
