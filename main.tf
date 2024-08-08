@@ -9,5 +9,5 @@ resource "aws_db_instance" "default" {
   password             = var.db_password
   skip_final_snapshot  = true
   db_subnet_group_name = "aws_rds_subnets_groups"
-  vpc_security_group_ids = "vpc-0b5b368725adc3ea5"
+  vpc_security_group_ids = vpc-0b5b368725adc3ea5
 }
