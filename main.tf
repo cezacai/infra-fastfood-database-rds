@@ -1,14 +1,14 @@
 
 resource "aws_db_subnet_group" "fastfood_subnet_group" {
   name      = "aws_rds_subnets_groups"
-  subnet_ids = ["subnet-0bade542721b95bb6", "subnet-007472babc1055dbe"]
+  subnet_ids = ["subnet-01111f51e20b5d265", "subnet-0c1334ab387f9e579"]
 }
 
 
 resource "aws_security_group" "this" {
   name        = "security_group_postgres_fastfood-produto"
   description = "Allow inbound traffic"
-  vpc_id = "vpc-0053416b6659e068d"
+  vpc_id = "vpc-0b5b368725adc3ea5"
 
 
 
