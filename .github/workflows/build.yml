@@ -57,4 +57,4 @@ jobs:
         terraform destroy -input=false -auto-approve
         rm -f aws_access_key_id
         rm -f aws_secret_access_key
-      continue-on-error: true
+      continue-on-error: false

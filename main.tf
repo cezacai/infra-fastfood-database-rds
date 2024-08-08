@@ -2,6 +2,10 @@
 resource "aws_db_subnet_group" "fastfood_subnet_group" {
   name      = "aws_rds_subnets_groups"
   subnet_ids = ["subnet-01111f51e20b5d265", "subnet-0c1334ab387f9e579"]
+
+  lifecycle {
+    ignore_changes = [name]
+  }
 }
 
 
@@ -38,4 +42,8 @@ resource "aws_db_instance" "default" {
   skip_final_snapshot  = true
   db_subnet_group_name = aws_db_subnet_group.fastfood_subnet_group.name
   vpc_security_group_ids = [aws_security_group.this.id]
+
+  lifecycle {
+    ignore_changes = [db_subnet_group_name]
+  }
 }
