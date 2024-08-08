@@ -8,6 +8,6 @@ resource "aws_db_instance" "default" {
   username             = var.db_username
   password             = var.db_password
   skip_final_snapshot  = true
-  db_subnet_group_name = aws_rds_subnets_groups
+  db_subnet_group_name = "security_group_postgres_fastfood-produto"
   vpc_security_group_ids = ["vpc-0b5b368725adc3ea5"]
 }
